@@ -11,6 +11,9 @@
         <classes>
             <class name="projects.frontend.cashback.suites.Auth"/>
             <class name="projects.frontend.cashback.suites.Registration"/>
+            <class name="projects.frontend.cashback.suites.Search"/>
+            <class name="projects.frontend.cashback.suites.Shop"/>
+            <class name="projects.frontend.cashback.suites.Landing"/>
 
         </classes>
     </test>

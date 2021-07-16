@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import projects.frontend.cashback.helpers.TestBaseCashback;
 import projects.frontend.cashback.pages.AuthPage;
+import projects.frontend.cashback.pages.LandingPage;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -46,4 +47,23 @@ public class Auth extends TestBaseCashback {
         sleep(1000);
         $(By.xpath("/html/body/div[1]/section/div/div[2]/div[5]/div[2]/div[2]/div[2]/p")).shouldHave(text("Нверный email или пароль"));
     }
+
+    @Test(groups = {"web"},priority = 5, description="Отрицательный сценарий: Неверный почта.")
+    @Story("Авторизация.")
+    public void authFalseFormatEmail() throws Exception {
+        open(authPage.authURL);
+        authPage.login("raisa.demenko@", "");
+        sleep(1000);
+        $(By.xpath("//*[@id=\"component-error-text\"]")).shouldHave(text("Неверный формат email"));
+    }
+
+
+    @Test(groups = {"web"},priority = 5, description="Отрицательный сценарий: Неверный пароль.")
+    @Story("Авторизация.")
+    public void authPasswordRecovery() throws Exception {
+        open(authPage.authURL);
+        authPage.login("raisa.demenko@yandex.ru", "");
+        $(By.xpath("//*[@id=\"component-error-text\"]")).shouldHave(text("Неверный формат email"));
+    }
+
 }
