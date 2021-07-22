@@ -6,30 +6,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SearchPage {
     public String paramURL = "dev";
-    public String authURL = "https://auth." + paramURL + "megabonus.com";
-
-    By authForm = By.id("auth");
-    By email = By.id("auth-form-email");
-    By password = By.id("auth-form-password");
-    By login = By.xpath("//*[@class=\"enter-button login-gaym\"]");
-
-
-    public void setEmail(String strEmail){
-        $(email).val(strEmail);
-    }
-
-    public void setPassword(String strPassword){
-        $(password).val(strPassword);
-    }
-
-    public void clickLogin(){
-        $(login).click();
-    }
-
-    public void login (String Email, String Password){
-        this.setEmail(Email);
-        this.setPassword(Password);
-        this.clickLogin();
-    }
+    public String landingURL = "https://" + paramURL + "megabonus.com";
 
 }
